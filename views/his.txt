@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="UTF-8">
+            <title>Smart Bed</title>
+            <meta( http-equiv='X-UA-Compatible', content='IE=edge' )>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="css/bootstrap.min.css" rel="stylesheet">
+            <!-- Custom CSS -->
+            <link href="css/stylish-portfolio.css" rel="stylesheet">
+            <!-- Custom Fonts -->
+            <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+            <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+            <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    
+            
+            <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+            <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
+            <script scr="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+            <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js'></script>
+            <script src="/socket.io/socket.io.js"></script>
+            
+            
+            <script src="./js/main/config.js"></script>
+            <ul>
+                    <li><a href="#home">DashBoard</a></li>
+                    <li><a href="#news">ประวัติผู้ป่วย</a></li>
+                    <li style="float:right"><a class="active" href="#about">Logout</a></li>
+                  </ul>
+                  
+</head>
+
+
+
+
+
+
+
+</script>
+    <body>  
+         <div ng-app ="bed" ng-controller="sensor">
+        <center>
+            <div class="row">
+                  <div class="panel panel-body bg2"> 
+                        <h1 style="color: rgba(255, 255, 255, 1);">{{bed_name}}</h2>
+                       
+                            <div class="col-sm-6 col-xs-12" >
+                                    
+                                    <img src="/img/circle_time.png" class="img-responsive ">
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                   
+                                <img src="/img/circle_hum.png"  class="img-responsive" style=" text-align: center;">
+                            </div>  
+                            <div class="col-sm-12 col-xs-12" >
+                                    <img ng-src="{{img}}" class="img-responsive ">
+                            </div>
+                    </div>
+           
+                </div>
+               
+        </center>
+      
+    </body>
+</html>

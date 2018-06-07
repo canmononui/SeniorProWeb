@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Smart Bed</title>
+		<meta( http-equiv='X-UA-Compatible', content='IE=edge' )>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom CSS -->
+		<link href="css/stylish-portfolio.css" rel="stylesheet">
+		<!-- Custom Fonts -->
+		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
+		<script scr="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+		<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js'></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="./js/main/config.js"></script>
+	</head>
+	</script>
+	<body style=" background-color: #323e4c;"> 
+		<div ng-app ="bed" ng-controller="sensor">
+			<center>
+					<div class="col-xs-12 col-md-12 col-lg-12" >
+							<div class="col-lg-10 col-md-10 col-xs-8" >
+								<!-- <div class="panel panel-body"> -->		
+								<div class=" w3-text-white w3-right" style="line-height: 1;font-size:20px;font-weight: lighter;" >{{bed_name}}</div>	
+							</div>
+							<div class="col-lg-2 col-md-2 col-xs-4" align="right" >
+								<input type="submit" value="ออกจากระบบ" class="btn btn-primary btn-sm" style="border-radius: 5em; margin-top:-10px" onclick="location.href='/'"/>
+							</div>
+						</div>
+				<div class="row bg2 "style=" height: 60%;">
+					<div class="col-xs-6" >
+						<div class="circle-middle">
+							<div class="circle">
+								<div style="margin-top:30px">
+									<div class=" w3-text-white w3-center" style="line-height: 1;">TIME</div>
+									<div class="w3-xxlarge w3-large  w3-text-white w3-center" style="line-height: 1;">{{docs.time}}</div>
+									<div class=" w3-text-white w3-center" style="line-height: 1;">COUNT DOWN</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6" >
+						<div class="circle-middle">
+							<div class="circle">
+								<div style="margin-top:30px">
+									<div class=" w3-text-white w3-center" style="line-height: 1;">STATUS</div>
+									<div class="w3-xxlarge w3-text-white w3-center" style="line-height: 1;">{{docs.hum}}</div>
+									<div class="w3-text-white w3-center" style="line-height: 1;">CHECK BED</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="w3-hide-large w3-hide-medium">
+						<div class="col-xs-3" align="right">
+							</div>
+						<div class="col-xs-3" align="right">
+							<i class="fa fa-play-circle fa-4x w3-text-white" style="margin-top:15px ;padding-right: 40px;" ng-click="start()"></i> 
+							<div class="" style="line-height: 1;margin-top:0px; color: rgba(255, 255, 255, 0.6);width: 120px;"align="left">START</div>
+						</div>
+						<div class="col-xs-3"align="left" >
+							<i class="fa fa-pause-circle fa-4x w3-text-white" style="margin-top:15px ;padding-left: 40px;" ng-click="pause()"></i>
+							<div class="w3-center" style="line-height: 1;margin-top:0px;color: rgba(255, 255, 255, 0.6);width: 55px;padding-left: 40px;" align="left">PAUSE</div>
+						</div>
+						<div class="col-xs-3" align="right">
+						</div>
+					</div>
+					<div class="w3-hide-small w3-hide-medium ">
+						<div class="col-xs-3" align="right">
+							</div>
+						<div class="col-xs-3" align="right">
+							<i class="fa fa-play-circle fa-4x w3-text-white" style="margin-top:15px ;padding-right: 40px;" ng-click="start()"></i> 
+							<div class="w3-center" style="line-height: 1;margin-top:0px;margin-bottom:10px;color: rgba(255, 255, 255, 0.6);width: 120px;">START</div>
+						</div>
+						<div class="col-xs-3"align="left" >
+							<i class="fa fa-pause-circle fa-4x w3-text-white" style="margin-top:15px ;padding-left: 40px;" ng-click="pause()"></i>
+							<div class="w3-center" style="line-height: 1;margin-top:0px;color: rgba(255, 255, 255, 0.6);width: 55px;padding-left: 40px;" align="left">PAUSE</div>
+						</div>
+						<div class="col-xs-3" align="right">
+						</div>
+					</div>
+					<div class="w3-hide-large w3-hide-small ">
+						<div class="col-xs-3" align="right">
+							</div>
+						<div class="col-xs-3" align="right">
+							<i class="fa fa-play-circle fa-4x w3-text-white" style="margin-top:15px ;padding-right: 40px;" ng-click="start()"></i> 
+							<div class="w3-center" style="line-height: 1;margin-top:0px;margin-bottom:10px;color: rgba(255, 255, 255, 0.6);width: 120px;">START</div>
+						</div>
+						<div class="col-xs-3"align="left" >
+							<i class="fa fa-pause-circle fa-4x w3-text-white" style="margin-top:15px ;padding-left: 40px;" ng-click="pause()"></i>
+							<div class="w3-center" style="line-height: 1;margin-top:0px;color: rgba(255, 255, 255, 0.6);width: 55px;padding-left: 40px;" align="left">PAUSE</div>
+						</div>
+						<div class="col-xs-3" align="right">
+						</div>
+					</div>
+				<div class="w3-hide-medium">
+					<div class="col-xs-12 col-md-12" style="margin-top:0px ; background-color: #323e4c; padding-bottom: 20px;" >
+						<div style="margin-top:20px; ">
+							<h2 style="color: rgba(255, 255, 255, 1);">{{guide}}</h2>
+							<h4 style="color: rgba(255, 255, 255, 0.3); ">PERSON SLEEP POSITIONING</h4>
+						</div>
+						<img ng-src="{{img}}" class="img-responsive " width="200px" height="200px">
+					</div>
+				</div>
+				<div class="w3-hide-large w3-hide-small">
+						<div class="col-xs-12 col-md-12" style="  background-color: #323e4c; padding-bottom: 150px;" >
+							<div style="margin-top:150px; ">
+								<h2 style="color: rgba(255, 255, 255, 1);">{{guide}}</h2>
+								<h4 style="color: rgba(255, 255, 255, 0.3); ">PERSON SLEEP POSITIONING</h4>
+							</div>
+							<img ng-src="{{img}}" class="img-responsive " width="200px" height="200px">
+						</div>
+					</div>
+			</div>
+		</center>
+		</div>
+	</body>
+</html>

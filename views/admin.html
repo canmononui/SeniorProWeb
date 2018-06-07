@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Smart Bed</title>
+		<meta( http-equiv='X-UA-Compatible', content='IE=edge' )>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom CSS -->
+		<link href="css/stylish-portfolio.css" rel="stylesheet">
+		<!-- Custom Fonts -->
+		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+
+		<script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
+		<script scr="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+		<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js'></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script scr="//bower_components/angular-cookies/angular-cookies.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		
+		<script src="./js/admin/config.js"></script>
+
+	
+		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="jQuery-plugin-progressbar.js"></script>
+
+		
+	<body class="bg-dash">
+		<center>
+			<div ng-app ="bed" ng-controller="sensor">
+				<div class="col-xs-12" style="margin-top:140px">
+					<div class="wrap">
+									<img src="/img/logo.png"  class="img-responsive" width="90" height="90" >
+									<p class="form-title">
+											Admin Controller
+										</p> 
+									<div class"f-login" >
+										<form class="login" novalidate="novalidate" method="get"  ng-submit="submit()" >
+											<input type="text" placeholder="Username" id="email"  ng-model="email" />
+											<input type="password" placeholder="Password" id="pass"ng-model="pass" />
+											<input type="submit" value="Sign In" class="btn btn-success btn-sm" />
+										</form>
+									</div>					
+								</div>
+				</div>
+			</div>
+		</center>
+
+	</body>
+</html>
